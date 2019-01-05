@@ -1,24 +1,6 @@
 import unittest
-from dataclasses import dataclass
 
-
-@dataclass
-class GridPoint:
-    x: int
-    y: int
-
-    def __init__(self, x: int, y: int):
-        if (not isinstance(x, int)) or (not isinstance(y, int)):
-            raise TypeError("Coordinate must be integer")
-
-        self.x = x
-        self.y = y
-
-    def __str__(self) -> str:
-        return f"({self.x},{self.y})"
-
-    def has_same_coordinates_with(self, other) -> bool:
-        return self.x == other.x and self.y == other.y
+from grid_point import GridPoint
 
 
 class TestGridPoint(unittest.TestCase):
@@ -38,6 +20,21 @@ class TestGridPoint(unittest.TestCase):
 
         with self.subTest("(4,7) と (3,8) は 違う座標"):
             self.assertFalse(GridPoint(4, 7).has_same_coordinates_with(GridPoint(3, 8)))
+
+    def test_格子点が隣り合っているかどうか判定できる(self):
+        origin_point = GridPoint(0, 0)
+
+        with self.subTest("(1, 0) は (0, 0) と 隣り合う"):
+            self.assertTrue(GridPoint(1, 0).is_neighbor_of(origin_point))
+
+        with self.subTest("(-1, 0) は (0, 0) と 隣り合う"):
+            self.assertTrue(GridPoint(-1, 0).is_neighbor_of(origin_point))
+
+        with self.subTest("(0, 1) は (0, 0) と 隣り合う"):
+            self.assertTrue(GridPoint(0, 1).is_neighbor_of(origin_point))
+
+        with self.subTest("(0, -1) は (0, 0) と 隣り合う"):
+            self.assertTrue(GridPoint(0, -1).is_neighbor_of(origin_point))
 
 
 if __name__ == "__main__":
