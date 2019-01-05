@@ -2,7 +2,7 @@ import unittest
 from dataclasses import dataclass
 
 from grid_point import GridPoint
-from grid_points import GridPoints
+from two_grid_points import TwoGridPoints
 
 
 @dataclass
@@ -17,9 +17,9 @@ class ThreeGridPoints:
                or self.p3.has_same_coordinates_with(p)
 
     def is_connected(self) -> bool:
-        s1 = GridPoints(self.p1, self.p2)
-        s2 = GridPoints(self.p2, self.p3)
-        s3 = GridPoints(self.p3, self.p1)
+        s1 = TwoGridPoints(self.p1, self.p2)
+        s2 = TwoGridPoints(self.p2, self.p3)
+        s3 = TwoGridPoints(self.p3, self.p1)
 
         # 3点が構成する 3つの 2点格子点集合 のうち ある2つの2点格子点集合が連結である
         return (s1.is_connected() and s2.is_connected()) or \

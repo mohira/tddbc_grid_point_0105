@@ -4,7 +4,7 @@ from grid_point import GridPoint
 
 
 @dataclass
-class GridPoints:
+class TwoGridPoints:
     p1: GridPoint
     p2: GridPoint
 
