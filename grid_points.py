@@ -13,3 +13,6 @@ class GridPoints:
 
     def is_connected(self) -> bool:
         return self.p1.is_neighbor_of(self.p2)
+
+    def count(self) -> int:
+        return 2

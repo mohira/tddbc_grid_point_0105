@@ -26,6 +26,9 @@ class ThreeGridPoints:
                (s2.is_connected() and s3.is_connected()) or \
                (s3.is_connected() and s1.is_connected())
 
+    def count(self) -> int:
+        return 3
+
 
 class TestThreeGridPoints(unittest.TestCase):
     def test_格子点集合が指定した格子点を含むか判定できる(self):
@@ -67,6 +70,13 @@ class TestThreeGridPoints(unittest.TestCase):
 
         with self.subTest("連結でない_3つの格子点のうち、2点だけ隣り合う"):
             self.assertFalse(ThreeGridPoints(p00, p10, p22).is_connected())
+
+    def test_格子点集合に含まれる格子点の数を取得できる(self):
+        p00 = GridPoint(0, 0)
+        p11 = GridPoint(1, 1)
+        p22 = GridPoint(2, 2)
+
+        self.assertEqual(3, ThreeGridPoints(p00, p11, p22).count())
 
 
 if __name__ == "__main__":

@@ -32,6 +32,12 @@ class TestGridPoints(unittest.TestCase):
 
             self.assertFalse(GridPoints(p00, p11).is_connected())
 
+    def test_格子点集合に含まれる格子点の数を取得できる(self):
+        p00 = GridPoint(0, 0)
+        p11 = GridPoint(1, 1)
+
+        self.assertEqual(2, GridPoints(p00, p11).count())
+
 
 if __name__ == "__main__":
     unittest.main()
