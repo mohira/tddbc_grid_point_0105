@@ -51,11 +51,14 @@ class TestFourGridPoints(unittest.TestCase):
         with self.subTest("連結である_T字"):
             self.assertTrue(FourGridPoints(p00, p10, p11, p20).is_connected())
 
-        with self.subTest("連結でない_その1"):
-            self.assertFalse(FourGridPoints(p00, p10, p11, p30).is_connected())
-
-        with self.subTest("連結でない_その2"):
+        with self.subTest("連結でない_どの格子点も隣り合っていない"):
             self.assertFalse(FourGridPoints(p00, p11, p22, p33).is_connected())
+
+        with self.subTest("連結でない_2点が隣り合う"):
+            self.assertFalse(FourGridPoints(p00, p10, p22, p33).is_connected())
+
+        with self.subTest("連結でない_3点が隣り合う"):
+            self.assertFalse(FourGridPoints(p00, p10, p11, p30).is_connected())
 
 
 if __name__ == "__main__":

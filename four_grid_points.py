@@ -11,14 +11,14 @@ class FourGridPoints:
     p3: GridPoint
     p4: GridPoint
 
+    def count(self) -> int:
+        return 4
+
     def contains(self, p: GridPoint) -> bool:
         return self.p1.has_same_coordinates_with(p) \
                or self.p2.has_same_coordinates_with(p) \
                or self.p3.has_same_coordinates_with(p) \
                or self.p4.has_same_coordinates_with(p)
-
-    def count(self) -> int:
-        return 4
 
     def is_connected(self) -> bool:
         s1 = TwoGridPoints(self.p1, self.p2)

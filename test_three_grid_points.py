@@ -6,18 +6,15 @@ from three_grid_points import ThreeGridPoints
 
 class TestThreeGridPoints(unittest.TestCase):
     def test_格子点集合が指定した格子点を含むか判定できる(self):
-        with self.subTest("含む"):
-            p00 = GridPoint(0, 0)
-            p11 = GridPoint(1, 1)
-            p22 = GridPoint(2, 2)
+        p00 = GridPoint(0, 0)
+        p11 = GridPoint(1, 1)
+        p22 = GridPoint(2, 2)
+        p33 = GridPoint(3, 3)
 
+        with self.subTest("含む"):
             self.assertTrue(ThreeGridPoints(p00, p11, p22).contains(p22))
 
         with self.subTest("含まない"):
-            p00 = GridPoint(0, 0)
-            p11 = GridPoint(1, 1)
-            p22 = GridPoint(2, 2)
-            p33 = GridPoint(3, 3)
 
             self.assertFalse(ThreeGridPoints(p00, p11, p22).contains(p33))
 

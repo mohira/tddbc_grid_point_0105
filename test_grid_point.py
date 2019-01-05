@@ -22,19 +22,19 @@ class TestGridPoint(unittest.TestCase):
             self.assertFalse(GridPoint(4, 7).has_same_coordinates_with(GridPoint(3, 8)))
 
     def test_格子点が隣り合っているかどうか判定できる(self):
-        origin_point = GridPoint(0, 0)
+        p00 = GridPoint(0, 0)
 
         with self.subTest("(1, 0) は (0, 0) と 隣り合う"):
-            self.assertTrue(GridPoint(1, 0).is_neighbor_of(origin_point))
+            self.assertTrue(GridPoint(1, 0).is_neighbor_of(p00))
 
         with self.subTest("(-1, 0) は (0, 0) と 隣り合う"):
-            self.assertTrue(GridPoint(-1, 0).is_neighbor_of(origin_point))
+            self.assertTrue(GridPoint(-1, 0).is_neighbor_of(p00))
 
         with self.subTest("(0, 1) は (0, 0) と 隣り合う"):
-            self.assertTrue(GridPoint(0, 1).is_neighbor_of(origin_point))
+            self.assertTrue(GridPoint(0, 1).is_neighbor_of(p00))
 
         with self.subTest("(0, -1) は (0, 0) と 隣り合う"):
-            self.assertTrue(GridPoint(0, -1).is_neighbor_of(origin_point))
+            self.assertTrue(GridPoint(0, -1).is_neighbor_of(p00))
 
 
 if __name__ == "__main__":

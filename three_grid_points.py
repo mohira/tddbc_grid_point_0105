@@ -10,10 +10,13 @@ class ThreeGridPoints:
     p2: GridPoint
     p3: GridPoint
 
+    def count(self) -> int:
+        return 3
+
     def contains(self, p: GridPoint) -> bool:
-        return self.p1.has_same_coordinates_with(p) \
-               or self.p2.has_same_coordinates_with(p) \
-               or self.p3.has_same_coordinates_with(p)
+        return self.p1.has_same_coordinates_with(p) or \
+               self.p2.has_same_coordinates_with(p) or \
+               self.p3.has_same_coordinates_with(p)
 
     def is_connected(self) -> bool:
         s1 = TwoGridPoints(self.p1, self.p2)
@@ -24,6 +27,3 @@ class ThreeGridPoints:
         return (s1.is_connected() and s2.is_connected()) or \
                (s2.is_connected() and s3.is_connected()) or \
                (s3.is_connected() and s1.is_connected())
-
-    def count(self) -> int:
-        return 3
